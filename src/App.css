@@ -1,0 +1,429 @@
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-10px, 0); }
+  20%, 40%, 60%, 80% { transform: translate(10px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.img-shake {
+  display: inline-block; /* Ensures the image remains inline and allows transformation */
+  animation: shake 0.5s ease-in-out;
+  animation-iteration-count: infinite; /* If you want the shake to repeat endlessly */
+}
+
+
+.text-typing {
+  width: 20ch; /* Adjust to fit the text length */
+  overflow: hidden;
+  white-space: wrap;
+  position: relative;
+  animation: typing 2s steps(20) 1s 1 normal both, blink .75s step-end infinite;
+}
+
+.text-typing::after {
+  content: '';
+  position: relative;
+  right: 0;
+  bottom: 0; /* Adjust this value to move the cursor up or down */
+  height: 10%; /* Adjust this value to change the height of the cursor */
+  border-right: 2px solid; /* Cursor styling */
+  animation: blink .75s step-end infinite;
+}
+
+
+
+.text-slide-in {
+  animation: slideIn 1s ease-out;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #040404cc;
+  color: white ;
+}
+  header {
+    background:#000;
+    color: #fff;
+    padding: 7px 0;
+    .Navigation{
+      img{
+        &:hover{
+          display: inline-block;
+          animation: shake 3s ease-in-out;
+          animation-iteration-count: infinite;
+              }
+          }
+        }
+  
+    h1{
+      float: inline-start;
+      margin: 0;
+      padding: 0;
+    }
+    nav{
+      float: inline-end;
+      margin-top: 17px;
+
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li{
+          display: inline;
+          margin-right: 20px;
+          cursor:pointer;
+          font-size: 27px;
+          transition: ease 0.2s all;
+          &:hover{
+            font-size: 34px;
+            color: rgb(243, 243, 56);
+          }
+          @media(max-width:768px) {
+            display: none;
+          }
+        }
+      }
+      .hamb{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+.Navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    nav{
+      display: flex;
+      .ham{
+        font-size:40px;
+        margin: 0px 20px;
+        padding: 5px;
+        display: none;
+        cursor: grab;
+        @media(max-width:768px) {
+          display: block;
+        }
+      }
+    }
+    img{
+      cursor: pointer;
+      margin-left: 30px;
+    }
+} 
+.hamMenu{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  ul{
+    display: none;
+    .ham{
+      margin-left: 120px;
+      cursor: grab;
+      padding: 0;
+    }
+    &.active{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 30px;
+      list-style: none;
+      padding: 25px;
+      margin-top: 10px;
+      margin-right: 5px;
+      background-color: #201e1e;
+      border-radius: 15px;
+    }
+    li{
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      padding: 10px;
+      &:hover{
+        color: #000;
+        background-color: yellow;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.AboutSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media(max-width:1440px) {
+      flex-direction: column;
+    }
+    .Intro {
+      display: grid;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #00000080;
+      color: white;
+      height: 500px;
+      width: 700px;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 25px;
+      transition: ease 0.3s all;
+      &:hover{
+        background-color: hsl(0, 0%, 0%);
+      }
+      @media (max-width:768px) {
+        width: auto;
+        height: min-content;
+      }
+      span{
+        @media (max-width:768px) {
+            display: none;
+      }
+    }
+      h2{
+        margin-left: 40px;
+        transition: ease 0.3s all;
+        &:hover{
+          transform: scale(1.1);
+            }
+          }
+      p{
+        font-weight: 100;
+      }
+      }
+    .mypic{
+     margin: 40px;
+     width: auto;
+     height: auto;
+     border-radius: 20px;
+     overflow: hidden;
+     transition: ease 0.3s all;
+     &:hover{
+     display: inline-block;
+     transform: scale(1.1);
+     /*animation: shake 3s ease-in-out;
+     animation-iteration-count: 1;*/
+    }
+    img{
+      height: 300px;
+      cursor:grab;
+      overflow: hidden;
+    }
+   }
+   .btn{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    button{
+      background-color: grey;
+      color: white;
+      padding: 10px;
+      border-radius: 15px;
+      transition: ease 0.3s all;
+      border: none;
+      &:hover{
+        cursor: grab;
+        transform: scale(1.1);
+        background-color:yellow;
+        color: black;
+      }
+    }
+   }
+}
+
+.container{
+  h2,p{
+    display: flex;
+    justify-content: center;
+    color: #e9e9e9;
+  }
+  .skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px;
+    ul{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      @media(max-width: 768px){
+        flex-direction: column;
+        font-size: 20px;
+      }
+    }
+    li{
+      background-color: grey;
+      color: white;
+      list-style: none;
+      border-radius: 15px;
+      padding: 10px;
+      margin: 5px;
+      justify-content: center;
+      align-items: center;
+      transition: ease 0.3s all;
+      &:hover{
+        background-color: gold;
+        color: #000;
+        transform: scale(1.1);
+      }
+    }
+    .front{
+      flex: 1;
+      background-color: #000;
+      border-radius: 15px;
+      h3{
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .back{
+      background-color: #000;
+      border-radius: 15px;
+      flex: 1;
+      h3{
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+  }
+}
+.projects{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  @media (max-width:500px) {
+    flex-wrap: wrap;
+  }
+}
+.card {
+  color: #fff;
+  background-color: #201e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(53, 52, 52, 0.1);
+  overflow: hidden;
+  width: 200px;
+  height:min-content;
+  text-align: center;
+  margin: 20px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  transition: ease 0.3s all;
+  cursor: grab;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.card-body {
+  padding: 10px;;
+}
+
+.card-title {
+  font-size: 20px;
+  margin: 10px;
+  color: #ffffff;
+}
+
+.card-text {
+  font-size: 15px;
+  color: #e9e9e9;
+  margin-bottom: 20px;
+}
+
+.card-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: grey;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card-btn:hover {
+  background-color: yellow;
+  color: #000;
+  transform: scale(1.1);
+}
+
+
+
+
+.section {
+  padding: 20px 0;
+  background: #fff;
+  margin-bottom: 20px;
+
+}
+
+
+.portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.portfolio-item {
+  flex: 1 1 calc(33.333% - 20px);
+  background: #eee;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer {
+  background: #000000;
+  color: #dfdede;
+  text-align: center;
+  padding: 5px 0;
+  p{
+    margin: 0;
+    font-size: 10px;
+  }
+}
+h2{
+  margin-bottom: 0;
+  font-size: 50px;
+  small{
+    font-size: 35px;
+    display: block;
+    font-weight: 100;
+  }
+}
+p{
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 200;
+
+}
+
+
+
